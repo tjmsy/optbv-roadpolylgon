@@ -1,0 +1,45 @@
+{
+  "version": 8,
+  "sources": {
+    "gsi-pale": {
+      "type": "raster",
+      "tiles": ["https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png"],
+      "tileSize": 256,
+      "attribution": "<a href=\"https://maps.gsi.go.jp/development/ichiran.html\" target=\"_blank\">国土地理院</a>",
+      "maxzoom": 16
+    },
+    "gsi-optimal-bvmap": {
+      "type": "vector",
+      "tiles": ["optimal-bvmap-underzoom://{z}/{x}/{y}"],
+      "minzoom": 15,
+      "maxzoom": 16,
+      "attribution": "<a href='https://github.com/gsi-cyberjapan/optimal_bvmap' target='_blank'>国土地理院最適化ベクトルタイル</a>"
+    },
+    "road-surface": {
+      "type": "geojson",
+      "data": { "type": "FeatureCollection", "features": [] },
+      "attribution": "<a href='https://github.com/gsi-cyberjapan/optimal_bvmap' target='_blank'>国土地理院最適化ベクトルタイル</a>"
+    }
+  },
+  "layers": [
+    { "id": "gsi-pale", "type": "raster", "source": "gsi-pale" },
+    {
+      "id": "road-surface-fill",
+      "type": "fill",
+      "source": "road-surface",
+      "paint": { "fill-color": "#F0C8B0" },
+      "minzoom": 15
+    },
+    {
+      "id": "RdEdg",
+      "type": "line",
+      "source": "gsi-optimal-bvmap",
+      "source-layer": "RdEdg",
+      "minzoom": 15,
+      "paint": {
+        "line-color": "#000000",
+        "line-width": 0.5
+      }
+    }
+  ]
+}

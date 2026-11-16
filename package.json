@@ -1,0 +1,67 @@
+{
+  "name": "optbv-roadpolylgon",
+  "repository": "github:tjmsy/optbv-roadpolylgon",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist-lib/library/index.d.ts",
+      "import": "./dist-lib/library/index.js"
+    }
+  },
+  "files": [
+    "dist-lib",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "tsx --test scripts/test/geodesy.test.ts scripts/test/edge-gap-pairing.test.ts scripts/test/edge-gap-classification.test.ts",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "build": "npm run build:lib && tsc && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json",
+    "prepare": "npm run build:lib",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/geojson": "^7946.0.16",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "maplibre-gl": "^6.18.0",
+    "prettier": "^3.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.2",
+    "vite": "^8.3.6"
+  },
+  "dependencies": {
+    "@mapbox/vector-tile": "^3.0.0",
+    "@turf/area": "^7.4.0",
+    "@turf/bbox": "^7.4.0",
+    "@turf/bbox-clip": "^7.4.0",
+    "@turf/boolean-intersects": "^7.4.0",
+    "@turf/boolean-point-in-polygon": "^7.4.0",
+    "@turf/buffer": "^7.4.0",
+    "@turf/difference": "^7.4.0",
+    "@turf/flatten": "^7.4.0",
+    "@turf/helpers": "^7.4.0",
+    "@turf/length": "^7.4.0",
+    "@turf/line-intersect": "^7.4.0",
+    "@turf/point-to-line-distance": "^7.4.0",
+    "@turf/union": "^7.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "geojson-vt": "^5.0.4",
+    "ml-mvt-underzoom": "^0.2.1",
+    "pbf": "^5.1.2",
+    "pmtiles": "^4.5.0",
+    "polygon-clipping": "^0.15.7",
+    "vt-pbf": "^3.1.3"
+  },
+  "peerDependencies": {
+    "maplibre-gl": ">=5 <7"
+  }
+}

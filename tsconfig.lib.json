@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "allowImportingTsExtensions": false,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "rootDir": "src",
+    "outDir": "dist-lib",
+    "types": [],
+    "lib": ["ES2023", "DOM"]
+  },
+  "include": ["src/library/**/*.ts", "src/core/**/*.ts"]
+}
